@@ -4,14 +4,14 @@ import java.util.Random;
 
 public class ComputerHand {
 
-    Random randomNumber = new Random();
+    /*Random randomNumber = new Random();
 
     public int getComputerHand() {
         int rn = randomNumber.nextInt(3);
         return rn;
-    }
+    }*/
 
-    /*Random randomNumber = new Random();
+    Random randomNumber = new Random();
 
     public void getComputerHand() {
         int rn = randomNumber.nextInt(3);
@@ -22,5 +22,5 @@ public class ComputerHand {
         } else if (rn == 2) {
             System.out.println("scissors");
         }
-    }*/
+    }
 }
