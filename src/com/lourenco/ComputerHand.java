@@ -4,23 +4,23 @@ import java.util.Random;
 
 public class ComputerHand {
 
-    /*Random randomNumber = new Random();
+    private Random randomNumber;
 
-    public int getComputerHand() {
-        int rn = randomNumber.nextInt(3);
-        return rn;
-    }*/
+    public ComputerHand() {
+        randomNumber = new Random();
+    }
 
-    Random randomNumber = new Random();
-
-    public void getComputerHand() {
+    public String getComputerHand() {
         int rn = randomNumber.nextInt(3);
         if (rn == 0) {
-            System.out.println("rock");
+            System.out.println("Cp choose rock...");
+            return "rock";
         } else if (rn == 1) {
-            System.out.println("paper");
-        } else if (rn == 2) {
-            System.out.println("scissors");
+            System.out.println("Cp choose paper...");
+            return "paper";
+        } else {
+            System.out.println("Cp choose scissors...");
+            return "scissors";
         }
     }
 }

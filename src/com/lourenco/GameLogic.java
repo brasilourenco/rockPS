@@ -4,49 +4,38 @@ import java.util.Scanner;
 
 public class GameLogic {
 
-    Scanner scanner = new Scanner(System.in);
-    //UserHand user = new UserHand();
-    ComputerHand cpUser = new ComputerHand();
+    private Scanner scanner;
+    private UserHand user;
+    private ComputerHand cpUser;
 
-    public void Logic() {
+    public GameLogic() {
+        scanner = new Scanner(System.in);
+        user = new UserHand();
+        cpUser = new ComputerHand();
+    }
+
+    public void play() {
 
         while (true) {
+            // == só para primitivos; .equals para objetos
+            String userHand = user.getUserHand();
+            String cpHand = cpUser.getComputerHand();
 
-            System.out.println("Hello, can you win against me?");
-            System.out.println("enter 1 to rock; ");
-            System.out.println("enter 2 to paper; ");
-            System.out.println("enter 3 to scissors. ");
-            byte i1 = scanner.nextByte();
-
-            if (i1 == 1) {
-                System.out.println("You put rock...");
-                if (cpUser.randomNumber.nextInt() == 0) {
-                    System.out.println("Draw!");
-                } else if (cpUser.randomNumber.nextInt() == 1) {
-                    System.out.println("You lose!");
-                } else if (cpUser.randomNumber.nextInt() == 2) {
-                    System.out.println("You win!");
-                }
-            } else if (i1 == 2) {
-                System.out.println("You put paper...");
-                if (cpUser.randomNumber.nextInt() == 0) {
-                    System.out.println("You win!");
-                } else if (cpUser.randomNumber.nextInt() == 1) {
-                    System.out.println("You Draw!");
-                } else if (cpUser.randomNumber.nextInt() == 2) {
-                    System.out.println("You lose!");
-                }
-            } else if (i1 == 3) {
-                System.out.println("You put scissors...");
-                if (cpUser.randomNumber.nextInt() == 0) {
-                    System.out.println("You lose!");
-                } else if (cpUser.randomNumber.nextInt() == 1) {
-                    System.out.println("You win!");
-                } else if (cpUser.randomNumber.nextInt() == 2) {
-                    System.out.println("Draw!");
-                }
+            if (userHand.equals(cpHand)) {
+                System.out.println("DRAW!");
+            } else if (userHand.equals("rock") && cpHand.equals("paper")) {
+                System.err.println("YOU LOSE!");
+            } else if (userHand.equals("scissors") && cpHand.equals("rock")) {
+                System.err.println("YOU LOSE!");
+            } else if (userHand.equals("paper") && cpHand.equals("scissors")) {
+                System.err.println("YOU LOSE!");
+            } else if (userHand.equals("paper") && cpHand.equals("rock")) {
+                System.out.println("YOU WIN!");
+            } else if (userHand.equals("scissors") && cpHand.equals("paper")) {
+                System.out.println("YOU WIN!");
+            } else if (userHand.equals("rock") && cpHand.equals("scissors")) {
+                System.out.println("YOU WIN!");
             }
-
 
             System.out.println("Do you wanna play again?");
             System.out.println("enter 1 to yes; ");
@@ -60,3 +49,4 @@ public class GameLogic {
         }
     }
 }
+
